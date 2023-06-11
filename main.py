@@ -35,11 +35,10 @@ args = parser.parse_args()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 if args.save:
-    file_path = './results/vqvae_' + args.filename + '.pth'
-    print('Results will be saved in ' + file_path)
-    if not os.path.exists(file_path):
-        with open(file_path, 'w') as f:
-            pass
+    file_path = '/vqvae_' + args.filename + '.pth'
+    print('Results will be saved in ./results' + file_path)
+    if not os.path.exists('./results'):
+        os.mkdir('./results')
 
 """
 Load data and define batch data loaders
