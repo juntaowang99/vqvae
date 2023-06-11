@@ -1,3 +1,4 @@
+import os
 import numpy as np
 import torch
 import torch.nn as nn
@@ -34,7 +35,11 @@ args = parser.parse_args()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 if args.save:
-    print('Results will be saved in ./results/vqvae_' + args.filename + '.pth')
+    file_path = './results/vqvae_' + args.filename + '.pth'
+    print('Results will be saved in ' + file_path)
+    if not os.path.exists(file_path):
+        with open(file_path, 'w') as f:
+            pass
 
 """
 Load data and define batch data loaders
