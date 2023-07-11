@@ -1,6 +1,9 @@
 import os
 import numpy as np
 import torch
+
+torch.cuda.set_device(1)
+
 import torch.nn as nn
 import torch.optim as optim
 import argparse
